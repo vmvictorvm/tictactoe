@@ -22,8 +22,8 @@ $(function () {
     if ($('#1').text() !== '' && $('#1').text() === $('#2').text() && $('#1').text() === $('#3').text()) {
       $('#result').html('The winner team is: ' + $('#1').text());
       win = true;
-      $('button').css('display', 'inline-block');
-      $('.square').css({'pointer-events':'none',
+      $('button').css('display', 'inline-block');  //Show refresh button once the match ended
+      $('.square').css({'pointer-events':'none',   //Grey-out and disabled boar once the match ended
                     'background-color':'grey'});
     }
     else if ($('#4').text() !== '' && $('#4').text() === $('#5').text() && $('#4').text() === $('#6').text()) {
