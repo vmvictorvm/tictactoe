@@ -5,69 +5,84 @@ $(function () {
   var turn = 0;
   var win = false;
 
+
+  $('button').on('click', function () {
+    location.reload();
+  });
   $('.square').on('click', function(){
     //alert("Squre 1 was clicked");
     var self = $(this);
     writeText(self);
     checkResult();
-    if (isFull() && !(win)) {
-      $('#result').html('NO WINNER');
-    }
   });
 
 
 
   function checkResult() {
-    if (($('#1').text() === $('#2').text()) && ($('#1').text() === $('#3').text())) {
-      if ($('#1').text() !== '') {
-        $('#result').html('The winner team is: ' + $('#1').text());
-        win = true;
-      }
+    if ($('#1').text() !== '' && $('#1').text() === $('#2').text() && $('#1').text() === $('#3').text()) {
+      $('#result').html('The winner team is: ' + $('#1').text());
+      win = true;
+      $('button').css('display', 'inline-block');
+      $('.square').css({'pointer-events':'none',
+                    'background-color':'grey'});
     }
-    if (($('#4').text() === $('#5').text()) && ($('#4').text() === $('#6').text())) {
-      if ($('#4').text() !== '') {
+    else if ($('#4').text() !== '' && $('#4').text() === $('#5').text() && $('#4').text() === $('#6').text()) {
       $('#result').html('The winner team is: ' + $('#4').text());
       win = true;
+      $('button').css('display', 'inline-block');
+      $('.square').css({'pointer-events':'none',
+                    'background-color':'grey'});
     }
-    }
-    if (($('#7').text() === $('#8').text()) && ($('#7').text() === $('#9').text())) {
-      if ($('#7').text() !== '') {
+    else if ($('#7').text() !== '' && $('#7').text() === $('#8').text() && $('#7').text() === $('#9').text()) {
       $('#result').html('The winner team is: ' + $('#7').text());
       win = true;
+      $('button').css('display', 'inline-block');
+      $('.square').css({'pointer-events':'none',
+                    'background-color':'grey'});
     }
-    }
-    if (($('#1').text() === $('#4').text()) && ($('#1').text() === $('#7').text())) {
-      if ($('#1').text() !== '') {
+    else if ($('#1').text() !== '' && $('#1').text() === $('#4').text() && $('#1').text() === $('#7').text()) {
       $('#result').html('The winner team is: ' + $('#1').text());
       win = true;
-    }
+      $('button').css('display', 'inline-block');
+      $('.square').css({'pointer-events':'none',
+                    'background-color':'grey'});
     }
 
-    if (($('#2').text() === $('#5').text()) && ($('#2').text() === $('#8').text())) {
-      if ($('#2').text() !== '') {
+    else if ($('#2').text() !== '' && $('#2').text() === $('#5').text() && $('#2').text() === $('#8').text()) {
       $('#result').html('The winner team is: ' + $('#2').text());
       win = true;
+      $('button').css('display', 'inline-block');
+      $('.square').css({'pointer-events':'none',
+                    'background-color':'grey'});
+
     }
-    }
-    if (($('#3').text() === $('#6').text()) && ($('#3').text() === $('#9').text())) {
-      if ($('#3').text() !== '') {
+    else if ($('#3').text() !== '' && $('#3').text() === $('#6').text() && $('#3').text() === $('#9').text()) {
       $('#result').html('The winner team is: ' + $('#3').text());
       win = true;
+      $('button').css('display', 'inline-block');
+      $('.square').css({'pointer-events':'none',
+                    'background-color':'grey'});
     }
-    }
-    if (($('#1').text() === $('#5').text()) && ($('#1').text() === $('#9').text())) {
-      if ($('#1').text() !== '') {
+    else if ($('#1').text() !== '' && $('#1').text() === $('#5').text() && $('#1').text() === $('#9').text()) {
       $('#result').html('The winner team is: ' + $('#1').text());
       win = true;
+      $('button').css('display', 'inline-block');
+      $('.square').css({'pointer-events':'none',
+                    'background-color':'grey'});
     }
-    }
-    if (($('#3').text() === $('#5').text()) && ($('#3').text() === $('#7').text())) {
-      if ($('#3').text() !== '') {
+    else if ($('#3').text() !== '' && $('#3').text() === $('#5').text() && $('#3').text() === $('#7').text()) {
       $('#result').html('The winner team is: ' + $('#3').text());
       win = true;
+      $('button').css('display', 'inline-block');
+      $('.square').css({'pointer-events':'none',
+                    'background-color':'grey'});
     }
+    else if (isFull() && !(win)) {
+      $('#result').html('NO WINNER');
+      $('button').css('display', 'inline-block');
+      $('.square').css({'pointer-events':'none',
+                    'background-color':'grey'});
     }
-
   }
 
   function isFull() {
